@@ -35,7 +35,7 @@ describe('Places/controller', () => {
             });
     });
 
-    /*it('POST /api/places should respond a http 201 OK with no image', () => {
+    it('POST /api/places should respond a http 201 OK with no image', () => {
         var newPlace = {
             name: 'Londre',
             author: 'Patrick',
@@ -105,6 +105,6 @@ describe('Places/controller', () => {
             .expect('Content-Type', /json/)
             .expect(400);
 
-    });*/
+    });
 
 });

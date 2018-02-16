@@ -26,7 +26,14 @@ describe('Places/controller', () => {
             });
     });
 
-    //TODO Ajouter ici le test qui vérifie le nombre de place remonté par l'api
+    it('GET /api/places should return 3 places', () => {
+        const app = (new App()).app;
+        return request(app)
+            .get('/api/places')
+            .expect(response => {
+                assert.equal(response.body.places.length, 3);
+            });
+    });
 
     /*it('POST /api/places should respond a http 201 OK with no image', () => {
         var newPlace = {

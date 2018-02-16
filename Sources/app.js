@@ -23,6 +23,15 @@ class App {
             }
             next();
         };
+
+        var middleware404 = function (request, response, next) {
+          console.log(request.route)
+          response.status(404).json({
+                key: 'not.found'
+            });
+          next();
+        };
+
         app.use(middlewareHttp);
 
         new Places(app, new Data());
@@ -32,6 +41,8 @@ class App {
                 version: packageJson.version
             });
         });
+
+        app.use(middleware404);
 
         // eslint-disable-next-line no-unused-vars
         app.use(function (error, request, response, next) {
